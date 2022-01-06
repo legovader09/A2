@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en-GB' xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <title>COMP284 Assignment 2 | 201440296</title>
+        <link rel="stylesheet" href="stylesheet.css" type="text/css">
+    </head>
+    <body>
+        <div style="line-height: 200%">
+            <h1>Create Your Own<br/>Treasure Hunting Game</h1>
+        </div>
+        <div style="line-height: 0">
+            <p style="font-size: 18px; font-weight: bold; color: #5a5a5a">By Dominik Hauerstein</p>
+        </div>
+        <input type="button" class="toggleText" id="btnToggleText" onclick="toggleHelpText()" value="Show/Hide Controls">
+        <div id="ControlsMenu" style="line-height: 120%">
+            <h3>Edit Mode:</h3>
+            <ul>
+                <li><b>1-9</b> - Set Treasure Tile, with value based on number pressed.</li>
+                <li><b>O</b> - Place an Obstacle (Acts as a wall.)</li>
+                <li><b>H</b> - Place the Hero Character (Player)</li>
+                <li><b>K</b> - Place a killer robot, which will attempt to prevent the hero from winning.</li>
+                <li><b>Enter</b> - Start/Stop Playback</li>
+            </ul>
+            <h3>Play Mode:</h3>
+            <ul>
+                <li><b>WASD</b> - Move player one block in corresponding Up, Left, Down, or Right direction.</li>
+                <li><b>Win Condition</b> - Win by collection all the treasure, without being hit by the robots.</li>
+            </ul>
+        </div>
+        <br/>
+        <div id="board">
+            <div id="EditUI">
+                <input type="button" class="editMode" id="o" onclick="setBuildObjectType('o', this)" value="Wall">
+                <input type="button" class="editMode" id="k" onclick="setBuildObjectType('k', this)" value="Robot">
+                <input type="button" class="editMode" id="t" onclick="setBuildObjectType('t', this)" value="Treasure">
+                <input type="button" class="editMode" id="h" onclick="setBuildObjectType('h', this)" value="Player">
+                <input type="button" class="editMode" id="e" onclick="setBuildObjectType('e', this)" value="Erase">
+                <label>|</label>
+                <input type="button" class="playMode" id="btnPlay" onclick="togglePlayMode(this)" style="background-color: lightgreen" value="Play">
+                <input type="button" id="btnSampleLvl" onclick="loadSampleLevel()" style="background-color: white" value="Load Sample Level">
+                <input type="button" id="btnClear" onclick="clearLevel()" style="background-color: rosybrown" value="Clear All">
+                <div id="sliderContainer">
+                    <!--suppress HtmlFormInputWithoutLabel -->
+                    <input type="range" min="1" max="9" value="1" class="slider" id="treasureValue"
+                    oninput="setTreasureVal(this.value)" onchange="setTreasureVal(this.value)">
+                    <label id="sliderVal">1</label>
+                </div>
+            </div>
+            <div id ="PlayUI">
+                <label id="score" style="font-size: larger; font-weight: bold">Score: 0</label>
+                <label style="font-size: larger; font-weight: bold">|</label>
+                <label id="turnIndicator" style="font-size: larger; font-weight: bold; color: limegreen">Your Turn</label>
+            </div>
+            <script src="game.js" type="text/javascript"></script>
+        </div>
+    </body>
+</html>
