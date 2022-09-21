@@ -2,7 +2,8 @@
 <html lang='en-GB' xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8">
-        <title>CYO Adventure Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>[Create Your Own] Adventure Game</title>
         <link rel="stylesheet" href="src/css/stylesheet.css" type="text/css">
     </head>
     <body>
@@ -31,20 +32,22 @@
         <br/>
         <div id="board">
             <div id="EditUI">
-                <input type="button" class="editMode" id="o" onclick="setBuildObjectType('o', this)" value="Wall">
-                <input type="button" class="editMode" id="k" onclick="setBuildObjectType('k', this)" value="Robot">
-                <input type="button" class="editMode" id="t" onclick="setBuildObjectType('t', this)" value="Treasure">
-                <input type="button" class="editMode" id="h" onclick="setBuildObjectType('h', this)" value="Player">
-                <input type="button" class="editMode" id="e" onclick="setBuildObjectType('e', this)" value="Erase">
-                <label>|</label>
-                <input type="button" class="playMode" id="btnPlay" onclick="togglePlayMode(this)" style="background-color: lightgreen" value="Play">
-                <input type="button" id="btnSampleLvl" onclick="loadSampleLevel()" style="background-color: white" value="Load Sample Level">
-                <input type="button" id="btnClear" onclick="clearLevel()" style="background-color: rosybrown" value="Clear All">
-                <div id="sliderContainer">
-                    <!--suppress HtmlFormInputWithoutLabel -->
-                    <input type="range" min="1" max="9" value="1" class="slider" id="treasureValue"
-                    oninput="setTreasureVal(this.value)" onchange="setTreasureVal(this.value)">
-                    <label id="sliderVal">1</label>
+                <div>
+                    <input type="button" class="editMode" id="o" onclick="window.Game.setBuildObjectType(this)" value="Wall">
+                    <input type="button" class="editMode" id="k" onclick="window.Game.setBuildObjectType(this)" value="Robot">
+                    <input type="button" class="editMode" id="t" onclick="window.Game.setBuildObjectType(this)" value="Treasure">
+                    <input type="button" class="editMode" id="h" onclick="window.Game.setBuildObjectType(this)" value="Player">
+                    <input type="button" class="editMode" id="e" onclick="window.Game.setBuildObjectType(this)" value="Erase">
+                    <div id="sliderContainer">
+                        <input type="range" min="1" max="9" value="1" class="slider" id="treasureValue"
+                        oninput="window.Game.setTreasureVal(this.value)" onchange="window.Game.setTreasureVal(this.value, this)">
+                        <label id="sliderVal">1</label>
+                    </div>
+                </div>
+                <div>
+                    <input type="button" class="playMode" id="btnPlay" onclick="window.Game.togglePlayMode(this)" style="background-color: lightgreen" value="Play">
+                    <input type="button" id="btnSampleLvl" onclick="window.Game.loadSampleLevel()" style="background-color: white" value="Load Sample Level">
+                    <input type="button" id="btnClear" onclick="window.Game.clearLevel()" style="background-color: rosybrown" value="Clear All">
                 </div>
             </div>
             <div id ="PlayUI">
@@ -53,9 +56,6 @@
                 <label id="turnIndicator" style="font-size: larger; font-weight: bold; color: limegreen">Your Turn</label>
             </div>
         </div>
-        <script src="src/js/ItemObject.js" type="text/javascript"></script>
-        <script src="src/js/Point.js" type="text/javascript"></script>
-        <script src="src/js/SampleLevel.js" type="text/javascript"></script>
-        <script src="src/js/game.js" type="text/javascript"></script>
+        <script src="src/js/App.js" type="module"></script>
     </body>
 </html>

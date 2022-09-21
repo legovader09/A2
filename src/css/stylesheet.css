@@ -1,45 +1,56 @@
+:root {
+  --H: lightblue;
+  --E: white;
+  --O: grey;
+  --K: red;
+  --T: gold;
+}
+
 * {
   transition: 0.1s;
 }
 
 body {
-    font-family: "Segoe UI";
-    text-align: center;
+  font-family: "Segoe UI";
+  font-size: auto;
+  text-align: center;
 }
 
-table, th, td {
-    border: 2px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-th, td {
-    height: 2em;
-    width: 2em;
+table {
+  border: 0.1rem solid black;
+  margin: 0.5rem auto;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 td {
-    text-align: center;
-    font-size: 24px;
-    font-family: "Arial Black";
+  border: 0.01rem solid rgb(199, 199, 199);
+  height: 3rem;
+  width: 3rem;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 input {
-    background-color: lightgrey;
+  background-color: lightgrey;
 }
 
 #sliderContainer {
-    display: none;
+  margin-bottom: 6px;
+  display: none;
 }
 
 input[type="button"] {
   border-radius: 5px;
   font-size: 16px;
   margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 450px) {
+  td {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 }

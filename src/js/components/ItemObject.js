@@ -11,3 +11,5 @@ class ItemObject {
         this.type = type;
     }
 }
+
+export default ItemObject;
