@@ -1,3 +1,7 @@
+* {
+  transition: 0.1s;
+}
+
 body {
     font-family: "Segoe UI";
     text-align: center;
