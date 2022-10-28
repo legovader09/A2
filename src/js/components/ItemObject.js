@@ -7,7 +7,7 @@ import Cell from './Cell.js';
  * @param {string} type Type of object to place on the grid.
  */
 class ItemObject {
-  constructor(x, y, type) {
+  constructor(x, y) {
     this.cell = Object.assign({}, Cell);
     this.cell.x = x;
     this.cell.y = y;
@@ -23,8 +23,7 @@ class ItemObject {
 
   setType(type) {
     this.type = type;
-    const td = document.getElementById(`${this.cell.x},${this.cell.y}`);
-    td.style.backgroundColor = `var(--${type})`
+    document.getElementById(`${this.cell.x},${this.cell.y}`).style.backgroundColor = `var(--${type.charAt(0)})`;
   }
 }
 

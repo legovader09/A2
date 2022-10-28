@@ -13,7 +13,7 @@
         <div style="line-height: 0">
             <p class="subtitle">By Dominik Hauerstein</p>
         </div>
-        <input type="button" class="toggleText" id="btnToggleText" onclick="window.toggleHelpText()" value="Show/Hide Controls">
+        <input type="button" class="toggleText" id="btnToggleText" onclick="window.toggleHelpText('ControlsMenu')" value="Show/Hide Controls">
         <div id="ControlsMenu">
             <h3>Edit Mode:</h3>
             <ul>
@@ -33,11 +33,11 @@
         <div id="board">
             <div id="EditUI">
                 <div>
-                    <input type="button" class="editMode" id="o" onclick="window.setBuildObjectType(this)" value="Wall">
-                    <input type="button" class="editMode" id="k" onclick="window.setBuildObjectType(this)" value="Robot">
-                    <input type="button" class="editMode" id="t" onclick="window.setBuildObjectType(this)" value="Treasure">
-                    <input type="button" class="editMode" id="h" onclick="window.setBuildObjectType(this)" value="Player">
-                    <input type="button" class="editMode" id="e" onclick="window.setBuildObjectType(this)" value="Erase">
+                    <input type="button" class="editMode" id="O" onclick="window.setBuildObjectType(this)" value="Wall">
+                    <input type="button" class="editMode" id="K" onclick="window.setBuildObjectType(this)" value="Robot">
+                    <input type="button" class="editMode" id="T(1)" onclick="window.setBuildObjectType(this)" value="Treasure">
+                    <input type="button" class="editMode" id="H" onclick="window.setBuildObjectType(this)" value="Player">
+                    <input type="button" class="editMode" id="E" onclick="window.setBuildObjectType(this)" value="Erase">
                     <div id="sliderContainer">
                         <label id="sliderVal">1</label>
                         <input type="range" min="1" max="9" value="1" class="slider" id="treasureValue"
@@ -45,15 +45,15 @@
                     </div>
                 </div>
                 <div>
-                    <input type="button" class="playMode" id="btnPlay" onclick="window.Game.togglePlayMode(this)" style="background-color: lightgreen" value="Play">
+                    <input type="button" id="btnPlay" onclick="window.Game.togglePlayMode(this)" style="background-color: lightgreen" value="Play">
                     <input type="button" id="btnSampleLvl" onclick="window.Game.loadSampleLevel()" style="background-color: white" value="Load Sample Level">
                     <input type="button" id="btnClear" onclick="window.Game.clearLevel()" style="background-color: rosybrown" value="Clear All">
                 </div>
             </div>
             <div id ="PlayUI">
-                <label id="score" style="font-size: larger; font-weight: bold">Score: 0</label>
-                <label style="font-size: larger; font-weight: bold">|</label>
-                <label id="turnIndicator" style="font-size: larger; font-weight: bold; color: limegreen">Your Turn</label>
+                <label id="score">Score: 0</label>
+                <label>|</label>
+                <label id="turnIndicator" style="color: #3285cd">Edit Mode</label>
             </div>
         </div>
         <script src="src/js/App.js" type="module"></script>

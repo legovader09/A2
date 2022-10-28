@@ -16,7 +16,7 @@ class Game {
   /**
    * Creates a (boardSize) by (boardSize) table grid, and adds a click event listener to each cell.
    */
-   drawMap() {
+  drawMap() {
     const table = document.createElement('table');
     table.id = 'gameGrid';
     for (let y = 0; y < this.boardSize.y; y++) {
@@ -24,6 +24,7 @@ class Game {
       for (let x = 0; x < this.boardSize.x; x++) {
         let td = document.createElement('td');
         td.id = `${x},${y}`;
+        td.addEventListener('click', () => this.onTileClick(x, y));
         this.editObjects.push(new ItemObject(x, y));
         tr.appendChild(td);
       }
@@ -43,12 +44,18 @@ class Game {
     })
   }
   
+  onTileClick(x, y) {
+    if (typeof this.buildType !== 'undefined' && this.mode === 'Edit') {
+      this.editObjects.find((i) => i.cell.x === x && i.cell.y === y).setType(this.buildType);
+    }
+  }
+  
   /**
    * Updates slider value text.
    * @param {string} val value of the slider
    * @param {string} element name of element that reflects the slider value.
    */
-   setTreasureVal(val, element) {
+  setTreasureVal(val, element) {
     element.innerText = val;
     this.buildType = `T(${val})`;
   }

@@ -3,7 +3,7 @@ const dir = {
   s: 'down', ArrowDown: 'down',
   a: 'left', ArrowLeft: 'left',
   d: 'right', ArrowRight: 'right',
-  ' ': 'pause', Escape: 'pause',
+  ' ': 'pause', Enter: 'pause',
   r: 'restart',
 };
 

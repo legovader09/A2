@@ -1,9 +1,12 @@
 :root {
-  --H: lightblue;
-  --E: white;
-  --O: grey;
-  --K: red;
-  --T: gold;
+  --H: #add8e6;
+  --E: #fff;
+  --O: #808080;
+  --K: #f00;
+  --T: #ffd700;
+  --ui-edit: #3285cd;
+  --ui-player-turn: #32cd32;
+  --ui-ai-turn: #ba1f1f;
 }
 
 * {
@@ -12,7 +15,6 @@
 
 body {
   font-family: "Segoe UI";
-  font-size: auto;
   text-align: center;
 }
 
@@ -24,7 +26,7 @@ table {
 }
 
 td {
-  border: 0.01rem solid rgb(199, 199, 199);
+  border: 0.01rem solid #c7c7c7;
   height: 3rem;
   width: 3rem;
 }
@@ -50,6 +52,11 @@ input[type="button"] {
 #sliderContainer {
   margin-bottom: 6px;
   display: none;
+}
+
+label {
+  font-size: larger;
+  font-weight: bold;
 }
 
 .subtitle {
