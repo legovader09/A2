@@ -3,18 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-        <title>[Create Your Own] Adventure Game</title>
         <link rel="stylesheet" href="src/css/stylesheet.css" type="text/css">
+        <title>[Create Your Own] Adventure Game</title>
     </head>
     <body>
         <div style="line-height: 200%">
             <h1>Create Your Own<br/>Treasure Hunting Game</h1>
         </div>
         <div style="line-height: 0">
-            <p style="font-size: 18px; font-weight: bold; color: #5a5a5a">By Dominik Hauerstein</p>
+            <p class="subtitle">By Dominik Hauerstein</p>
         </div>
-        <input type="button" class="toggleText" id="btnToggleText" onclick="toggleHelpText()" value="Show/Hide Controls">
-        <div id="ControlsMenu" style="line-height: 120%">
+        <input type="button" class="toggleText" id="btnToggleText" onclick="window.toggleHelpText()" value="Show/Hide Controls">
+        <div id="ControlsMenu">
             <h3>Edit Mode:</h3>
             <ul>
                 <li><b>1-9</b> - Set Treasure Tile, with value based on number pressed.</li>
@@ -33,11 +33,11 @@
         <div id="board">
             <div id="EditUI">
                 <div>
-                    <input type="button" class="editMode" id="o" onclick="window.Game.setBuildObjectType(this)" value="Wall">
-                    <input type="button" class="editMode" id="k" onclick="window.Game.setBuildObjectType(this)" value="Robot">
-                    <input type="button" class="editMode" id="t" onclick="window.Game.setBuildObjectType(this)" value="Treasure">
-                    <input type="button" class="editMode" id="h" onclick="window.Game.setBuildObjectType(this)" value="Player">
-                    <input type="button" class="editMode" id="e" onclick="window.Game.setBuildObjectType(this)" value="Erase">
+                    <input type="button" class="editMode" id="o" onclick="window.setBuildObjectType(this)" value="Wall">
+                    <input type="button" class="editMode" id="k" onclick="window.setBuildObjectType(this)" value="Robot">
+                    <input type="button" class="editMode" id="t" onclick="window.setBuildObjectType(this)" value="Treasure">
+                    <input type="button" class="editMode" id="h" onclick="window.setBuildObjectType(this)" value="Player">
+                    <input type="button" class="editMode" id="e" onclick="window.setBuildObjectType(this)" value="Erase">
                     <div id="sliderContainer">
                         <label id="sliderVal">1</label>
                         <input type="range" min="1" max="9" value="1" class="slider" id="treasureValue"
@@ -57,34 +57,5 @@
             </div>
         </div>
         <script src="src/js/App.js" type="module"></script>
-        <script src="src/js/helpers/toggleHelpText.js" type="text/javascript"></script>
-        <script>
-            //adds event listener for keyboard input, for play and edit mode.
-            document.addEventListener('keypress', (event) => {
-                if (window.Game.stage === 1 && window.Game.isPlayerTurn) {
-                    let hasMadeMove = false;
-                    const pos = window.Game.getPlayerPosition();
-                    switch (true) {
-                        case (event.key === 'w' || event.key === 's' || event.key === 'a' || event.key === 'd'):
-                            window.Game.moveObject(pos.x, pos.y, event.key, 'H');
-                            window.Game.hasMadeMove = true;
-                            break;
-                        case (event.key === 'Enter'):
-                            window.Game.togglePlayMode(document.getElementById('btnPlay'));
-                            break;
-                        default: break;
-                    }
-
-                    window.Game.checkWinCondition();
-
-                    //when player moves, start AI turn.
-                    if (hasMadeMove && window.Game.treasureLeft > 0) {
-                        window.Game.turnCounter++;
-                        window.Game.isPlayerTurn = false;
-                        window.Game.startAITurn();
-                    }
-                }
-            });
-        </script>
     </body>
 </html>

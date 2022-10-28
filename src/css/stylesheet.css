@@ -37,15 +37,25 @@ input {
   background-color: lightgrey;
 }
 
+input[type="button"] {
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+#ControlsMenu {
+  line-height: 120%;
+}
+
 #sliderContainer {
   margin-bottom: 6px;
   display: none;
 }
 
-input[type="button"] {
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 8px;
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #5a5a5a;
 }
 
 @media only screen and (max-width: 450px) {

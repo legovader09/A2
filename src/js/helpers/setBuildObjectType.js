@@ -1,4 +1,4 @@
-const buttonHelper = (sender) => {
+const setBuildObjectType = (sender) => {
   document.querySelectorAll(".editMode").forEach((e) => {
     e.style.backgroundColor = 'lightgrey';
   })
@@ -11,6 +11,8 @@ const buttonHelper = (sender) => {
     document.getElementById("treasureValue").value = 1;
     document.getElementById('sliderVal').innerText = 1;
   }
+  
+  window.Game.buildType = sender && sender.id.toUpperCase();
 }
 
-export default buttonHelper;
+export default setBuildObjectType;
