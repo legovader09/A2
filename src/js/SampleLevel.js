@@ -1,5 +1,6 @@
-//sample level for quick testing purposes.
-var sampleLevel =
+export default function loadSampleLevel() { return sampleLevel; }
+
+const sampleLevel =
 [
   {
       "x": "0",
