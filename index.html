@@ -2,18 +2,19 @@
 <html lang='en-GB' xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8">
-        <title>CYO Adventure Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <link rel="stylesheet" href="src/css/stylesheet.css" type="text/css">
+        <title>[Create Your Own] Adventure Game</title>
     </head>
     <body>
         <div style="line-height: 200%">
             <h1>Create Your Own<br/>Treasure Hunting Game</h1>
         </div>
         <div style="line-height: 0">
-            <p style="font-size: 18px; font-weight: bold; color: #5a5a5a">By Dominik Hauerstein</p>
+            <p class="subtitle">By Dominik Hauerstein</p>
         </div>
-        <input type="button" class="toggleText" id="btnToggleText" onclick="toggleHelpText()" value="Show/Hide Controls">
-        <div id="ControlsMenu" style="line-height: 120%">
+        <input type="button" class="toggleText" id="btnToggleText" onclick="window.toggleHelpText('ControlsMenu')" value="Show/Hide Controls">
+        <div id="ControlsMenu" class="hidden">
             <h3>Edit Mode:</h3>
             <ul>
                 <li><b>1-9</b> - Set Treasure Tile, with value based on number pressed.</li>
@@ -30,32 +31,37 @@
         </div>
         <br/>
         <div id="board">
-            <div id="EditUI">
-                <input type="button" class="editMode" id="o" onclick="setBuildObjectType('o', this)" value="Wall">
-                <input type="button" class="editMode" id="k" onclick="setBuildObjectType('k', this)" value="Robot">
-                <input type="button" class="editMode" id="t" onclick="setBuildObjectType('t', this)" value="Treasure">
-                <input type="button" class="editMode" id="h" onclick="setBuildObjectType('h', this)" value="Player">
-                <input type="button" class="editMode" id="e" onclick="setBuildObjectType('e', this)" value="Erase">
-                <label>|</label>
-                <input type="button" class="playMode" id="btnPlay" onclick="togglePlayMode(this)" style="background-color: lightgreen" value="Play">
-                <input type="button" id="btnSampleLvl" onclick="loadSampleLevel()" style="background-color: white" value="Load Sample Level">
-                <input type="button" id="btnClear" onclick="clearLevel()" style="background-color: rosybrown" value="Clear All">
-                <div id="sliderContainer">
-                    <!--suppress HtmlFormInputWithoutLabel -->
-                    <input type="range" min="1" max="9" value="1" class="slider" id="treasureValue"
-                    oninput="setTreasureVal(this.value)" onchange="setTreasureVal(this.value)">
-                    <label id="sliderVal">1</label>
+            <div>
+                <div>
+                    <input type="button" id="btnPlay" onclick="window.Game.togglePlayMode(this)" style="background-color: var(--ui-play-button)" value="Play">
+                    <input type="button" id="btnSampleLvl" onclick="window.Game.loadSampleLevel()" style="background-color: white" value="Load Sample Level">
+                    <input type="button" id="btnClear" onclick="window.Game.clearBoard()" style="background-color: rosybrown" value="Clear All">
+                </div>
+                <div class="EditUI">
+                    <input type="button" class="editMode" id="O" onclick="window.setBuildObjectType(this)" value="Wall">
+                    <input type="button" class="editMode" id="K" onclick="window.setBuildObjectType(this)" value="Robot">
+                    <input type="button" class="editMode" id="T(1)" onclick="window.setBuildObjectType(this)" value="Treasure">
+                    <input type="button" class="editMode" id="H" onclick="window.setBuildObjectType(this)" value="Player">
+                    <input type="button" class="editMode" id="E" onclick="window.setBuildObjectType(this)" value="Erase">
+                    <div id="sliderContainer">
+                        <label id="sliderVal">1</label>
+                        <input type="range" min="1" max="9" value="1" class="slider" id="treasureValue"
+                        oninput="window.Game.setTreasureVal(this.value, document.getElementById('sliderVal'))">
+                    </div>
+                </div>
+                <div class="EditUI">
+                    <input type="button" id="btnShare" onclick="window.Game.importLevel()" style="background-color: rgb(208, 173, 230)" value="Import Level">
+                    <input type="button" id="btnShare" onclick="window.Game.shareLevel()" style="background-color: lightblue" value="Share Level">
                 </div>
             </div>
             <div id ="PlayUI">
-                <label id="score" style="font-size: larger; font-weight: bold">Score: 0</label>
-                <label style="font-size: larger; font-weight: bold">|</label>
-                <label id="turnIndicator" style="font-size: larger; font-weight: bold; color: limegreen">Your Turn</label>
+                <label id="score">Score: 0</label>
+                <label>|</label>
+                <label id="turnIndicator" style="color: var(--ui-edit-turn)">Edit Mode</label>
             </div>
         </div>
-        <script src="src/js/ItemObject.js" type="text/javascript"></script>
-        <script src="src/js/Point.js" type="text/javascript"></script>
-        <script src="src/js/SampleLevel.js" type="text/javascript"></script>
-        <script src="src/js/game.js" type="text/javascript"></script>
+        <script src="src/js/lib/easystar.js"></script>
+        <script>window.EasyStar = new EasyStar.js();</script>
+        <script src="src/js/App.js" type="module"></script>
     </body>
 </html>

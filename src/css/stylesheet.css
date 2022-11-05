@@ -1,45 +1,79 @@
+:root {
+  --H: #add8e6;
+  --E: #fff;
+  --O: #808080;
+  --K: #f00;
+  --T: #ffd700;
+  --ui-edit-turn: #3285cd;
+  --ui-player-turn: #32cd32;
+  --ui-ai-turn: #ba1f1f;
+  --ui-play-button: #90ee90;
+  --ui-play-button-pressed: #ee9090;
+}
+
 * {
   transition: 0.1s;
 }
 
 body {
-    font-family: "Segoe UI";
-    text-align: center;
+  font-family: "Segoe UI";
+  text-align: center;
 }
 
-table, th, td {
-    border: 2px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-th, td {
-    height: 2em;
-    width: 2em;
+table {
+  border: 0.1rem solid black;
+  margin: 0.5rem auto;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 td {
-    text-align: center;
-    font-size: 24px;
-    font-family: "Arial Black";
+  border: 0.01rem solid #c7c7c7;
+  height: 3rem;
+  width: 3rem;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 input {
-    background-color: lightgrey;
-}
-
-#sliderContainer {
-    display: none;
+  background-color: lightgrey;
 }
 
 input[type="button"] {
   border-radius: 5px;
   font-size: 16px;
   margin-bottom: 8px;
+}
+
+#ControlsMenu {
+  line-height: 120%;
+}
+
+#sliderContainer {
+  margin-bottom: 6px;
+  display: none;
+}
+
+label {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #5a5a5a;
+}
+
+@media only screen and (max-width: 950px) {
+  td {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
 }
