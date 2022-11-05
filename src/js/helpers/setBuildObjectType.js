@@ -1,3 +1,5 @@
+import { Types } from "../components/index.js";
+
 const setBuildObjectType = (sender) => {
   document.querySelectorAll(".editMode").forEach((e) => {
     e.style.backgroundColor = 'lightgrey';
@@ -9,10 +11,10 @@ const setBuildObjectType = (sender) => {
 
   if (x.style.display === "none") {
     document.getElementById("treasureValue").value = 1;
-    document.getElementById('sliderVal').innerText = 1;
+    document.getElementById('sliderVal').innerText = '1';
   }
   
-  window.Game.buildType = sender && sender.id;
+  window.Game.Properties.buildType = sender && sender.id;
 }
 
 export default setBuildObjectType;

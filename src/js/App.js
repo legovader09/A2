@@ -8,5 +8,7 @@ window.toggleHelpText = toggleHelpText;
 window.setBuildObjectType = setBuildObjectType;
 window.addEventListener("keydown", (e) => {
   e.preventDefault();
-  return window.Game.changeDirection(getDirection(e.key));
+  return window.Game.movePlayer(getDirection(e.key));
 });
+
+window.Game.loadSampleLevel();

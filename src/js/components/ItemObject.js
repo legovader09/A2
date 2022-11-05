@@ -1,4 +1,5 @@
 import Cell from './Cell.js';
+import Types from "./Types.js";
 
 /**
  * An ItemObject that holds x and y coordinates, as well as the type of object at those coordinates.
@@ -11,7 +12,7 @@ class ItemObject {
     this.cell = Object.assign({}, Cell);
     this.cell.x = x;
     this.cell.y = y;
-    this.type = 'E';
+    this.type = Types.E;
   }
 
   neighbours(left, right, up, down) {

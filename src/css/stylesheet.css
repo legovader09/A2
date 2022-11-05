@@ -4,9 +4,11 @@
   --O: #808080;
   --K: #f00;
   --T: #ffd700;
-  --ui-edit: #3285cd;
+  --ui-edit-turn: #3285cd;
   --ui-player-turn: #32cd32;
   --ui-ai-turn: #ba1f1f;
+  --ui-play-button: #90ee90;
+  --ui-play-button-pressed: #ee9090;
 }
 
 * {
@@ -59,13 +61,17 @@ label {
   font-weight: bold;
 }
 
+.hidden {
+  display: none;
+}
+
 .subtitle {
   font-size: 18px;
   font-weight: bold;
   color: #5a5a5a;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 950px) {
   td {
     height: 1.5rem;
     width: 1.5rem;

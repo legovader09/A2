@@ -14,7 +14,7 @@
             <p class="subtitle">By Dominik Hauerstein</p>
         </div>
         <input type="button" class="toggleText" id="btnToggleText" onclick="window.toggleHelpText('ControlsMenu')" value="Show/Hide Controls">
-        <div id="ControlsMenu">
+        <div id="ControlsMenu" class="hidden">
             <h3>Edit Mode:</h3>
             <ul>
                 <li><b>1-9</b> - Set Treasure Tile, with value based on number pressed.</li>
@@ -31,8 +31,13 @@
         </div>
         <br/>
         <div id="board">
-            <div id="EditUI">
+            <div>
                 <div>
+                    <input type="button" id="btnPlay" onclick="window.Game.togglePlayMode(this)" style="background-color: var(--ui-play-button)" value="Play">
+                    <input type="button" id="btnSampleLvl" onclick="window.Game.loadSampleLevel()" style="background-color: white" value="Load Sample Level">
+                    <input type="button" id="btnClear" onclick="window.Game.clearBoard()" style="background-color: rosybrown" value="Clear All">
+                </div>
+                <div class="EditUI">
                     <input type="button" class="editMode" id="O" onclick="window.setBuildObjectType(this)" value="Wall">
                     <input type="button" class="editMode" id="K" onclick="window.setBuildObjectType(this)" value="Robot">
                     <input type="button" class="editMode" id="T(1)" onclick="window.setBuildObjectType(this)" value="Treasure">
@@ -44,18 +49,19 @@
                         oninput="window.Game.setTreasureVal(this.value, document.getElementById('sliderVal'))">
                     </div>
                 </div>
-                <div>
-                    <input type="button" id="btnPlay" onclick="window.Game.togglePlayMode(this)" style="background-color: lightgreen" value="Play">
-                    <input type="button" id="btnSampleLvl" onclick="window.Game.loadSampleLevel()" style="background-color: white" value="Load Sample Level">
-                    <input type="button" id="btnClear" onclick="window.Game.clearLevel()" style="background-color: rosybrown" value="Clear All">
+                <div class="EditUI">
+                    <input type="button" id="btnShare" onclick="window.Game.importLevel()" style="background-color: rgb(208, 173, 230)" value="Import Level">
+                    <input type="button" id="btnShare" onclick="window.Game.shareLevel()" style="background-color: lightblue" value="Share Level">
                 </div>
             </div>
             <div id ="PlayUI">
                 <label id="score">Score: 0</label>
                 <label>|</label>
-                <label id="turnIndicator" style="color: #3285cd">Edit Mode</label>
+                <label id="turnIndicator" style="color: var(--ui-edit-turn)">Edit Mode</label>
             </div>
         </div>
+        <script src="src/js/lib/easystar.js"></script>
+        <script>window.EasyStar = new EasyStar.js();</script>
         <script src="src/js/App.js" type="module"></script>
     </body>
 </html>

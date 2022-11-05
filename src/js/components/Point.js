@@ -8,7 +8,13 @@ class Point {
    * Converts coordinates to a new point with relevant x, and y values.
    * @param {string} str a comma separated string representing coordinates
    */
-  static fromInt = (str) => new Point(str[0], str[1]);
+  static fromString = (str) => new Point(str[0], str[1]);
+
+  /**
+   * Converts ItemObject coordinates to a new point object.
+   * @param {ItemObject} item
+   */
+  static fromItemObject = (item) => new Point(item.cell.x, item.cell.y);
 
   /**
    * Compares two points to see if the x and y values are equal.
