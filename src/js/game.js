@@ -198,7 +198,7 @@ class Game {
     this.Properties.objects.forEach((e) => {
       e.setType(Types.E);
     });
-    this.Properties.heroTile = null;
+    this.Properties.score = 0;
   }
 
   createBackup() {
