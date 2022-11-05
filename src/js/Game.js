@@ -122,8 +122,7 @@ class Game {
         case Types.O:
           break;
         case Types.T + c.type.substring(1):
-          this.Properties.score += Number(c.type.charAt(2));
-          document.getElementById('score').innerText = `Score: ${this.Properties.score}`;
+          this.setScore(Number(c.type.charAt(2)));
           move(c);
           break;
         case Types.K:
@@ -177,6 +176,11 @@ class Game {
     await this.moveEnemies();
   }
 
+  setScore(score, additive = true) {
+    this.Properties.score = additive ? this.Properties.score + score : score;
+    document.getElementById('score').innerText = `Score: ${this.Properties.score}`;
+  }
+
   endGame(win) {
     alert(`You ${win ? 'won' : 'lost'}! You scored ${this.Properties.score} points.`);
     this.togglePlayMode(document.getElementById('btnPlay'));
@@ -198,7 +202,7 @@ class Game {
     this.Properties.objects.forEach((e) => {
       e.setType(Types.E);
     });
-    this.Properties.score = 0;
+    this.setScore(0, false);
   }
 
   createBackup() {
