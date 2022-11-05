@@ -10,5 +10,3 @@ window.addEventListener("keydown", (e) => {
   e.preventDefault();
   return window.Game.movePlayer(getDirection(e.key));
 });
-
-window.Game.loadSampleLevel();
