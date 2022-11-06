@@ -56,7 +56,10 @@ class Game {
   }
 
   onTileClick(x, y) {
-    if (this.Properties.buildType && this.Properties.isPlaying === false) {
+    if (!this.Properties.buildType) return;
+    if (this.Properties.isPlaying) {
+      // TODO: Add movement support
+    } else {
       this.setCell(x, y, this.Properties.buildType);
     }
   }
